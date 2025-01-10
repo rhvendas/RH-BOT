@@ -11,7 +11,7 @@ from rich.style import Style
 import pystyle
 from pystyle import Colors, Colorate
 
-from cpmelsedev import CPMElsedev
+from rhvendas import rhvendas
 
 __CHANNEL_USERNAME__ = "rh_vendas_ofc"
 __GROUP_USERNAME__   = "5569993571857"
