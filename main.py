@@ -170,7 +170,7 @@ if __name__ == "__main__":
             print(Colorate.Horizontal(Colors.rainbow, '{05}: ALTERAR NOME          1,000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{06}: ALTERAR NOME ( RGB ) 1,000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{07}: NUMERO PLACAS         2,000K'))
-            print(Colorate.Horizontal(Colors.rainbow, '{08}: DELETAR CONTA       FREE ))
+            print(Colorate.Horizontal(Colors.rainbow, '{08}: DELETAR CONTA       FREE'))
             print(Colorate.Horizontal(Colors.rainbow, '{09}: REGISTRAR NOVA CONTA     FREE'))
             print(Colorate.Horizontal(Colors.rainbow, '{10}: DELETAR TODOS AMIGOS       5,000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{11}: DESBLOQUEAR CARROS PAGOS     4,000K'))
