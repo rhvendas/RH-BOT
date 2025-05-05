@@ -189,6 +189,7 @@ if __name__ == "__main__":
             print(Colorate.Horizontal(Colors.rainbow, '{24}: ALTERAR CORRIDAS GANHAS      1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{25}: ALTERAR CORRIDAS PERDIDAS    1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{26}: CLONAR CONTA                 5.000K'))
+            print(Colorate.Horizontal(Colors.rainbow, '{27}: VER ESTADO KING              4.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{0} : SAIR'))
             
             print(Colorate.Horizontal(Colors.rainbow, '===============[ 𝐂𝐏𝐌☆ ]==============='))
@@ -608,6 +609,20 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, '[!] USE VALORES VALIDOS.'))
                     sleep(2)
                     continue
+                    
+                    elif service == 27:  # Verificar Rank do Jogador
+    console.print("[bold blue][*] VERIFICANDO RANK DA CONTA...[/bold blue]")
+    resultado = cpm.get_player_rank()
+
+    if resultado.get("ok"):
+        dados = resultado.get("data", {})
+        console.print("[green][+] RANK OBTIDO COM SUCESSO:[/green]")
+        for chave, valor in dados.items():
+            console.print(f"[cyan]{chave}[/cyan]: {valor}")
+    else:
+        console.print("[red][-] ERRO AO OBTER O RANK:[/red]", resultado.get("message"))
+    
+    sleep(2)
             else: continue
             break
         break
