@@ -610,17 +610,17 @@ if __name__ == "__main__":
                     sleep(2)
                     continue
                     
-                    elif service == 27:  # Verificar Rank do Jogador
-    console.print("[bold blue][*] VERIFICANDO RANK DA CONTA...[/bold blue]")
-    resultado = cpm.get_player_rank()
+            elif service == 27:  # Verificar Rank do Jogador
+                print("[bold blue][*] VERIFICANDO RANK DA CONTA...[/bold blue]")
+                resultado = cpm.get_player_rank()
 
-    if resultado.get("ok"):
-        dados = resultado.get("data", {})
-        console.print("[green][+] RANK OBTIDO COM SUCESSO:[/green]")
-        for chave, valor in dados.items():
-            console.print(f"[cyan]{chave}[/cyan]: {valor}")
-    else:
-        console.print("[red][-] ERRO AO OBTER O RANK:[/red]", resultado.get("message"))
+                if resultado.get("ok"):
+                   dados = resultado.get("data", {})
+                   console.print("[green][+] RANK OBTIDO COM SUCESSO:[/green]")
+                   for chave, valor in dados.items():
+                   print(f"[cyan]{chave}[/cyan]: {valor}")
+               else:
+                   print("[red][-] ERRO AO OBTER O RANK:[/red]", resultado.get("message"))
     
     sleep(2)
             else: continue
