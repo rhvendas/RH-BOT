@@ -279,7 +279,7 @@ class RHvendas:
         try:
             response = requests.post(f"{self.BASE_URL}/account_login", params=params, data=payload)
             response_decoded = response.json()
-         if response_decoded.get("ok"):
+        if response_decoded.get("ok"):
             self.auth_token = response_decoded.get("auth")
             print(Colorate.Horizontal(Colors.green_to_blue, "[+] LOGIN REALIZADO COM SUCESSO"))
             return self.auth_token
