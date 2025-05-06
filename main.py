@@ -667,8 +667,9 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, 'CAR ID INVÁLIDO OU NÃO EXISTENTE.'))
                     sleep(2)             
                     continue
-            elif service == 30:  # CPM ACCOUNT ALL CARS GETTER
-                print(Colorate.Horizontal(Colors.rainbow, '[!] INSIRA SEU ACCOUNT AUTH PARA OBTER TODOS OS CARROS.'))
+            
+            elif service == 30: # Get All Cars
+                print(Colorate.Horizontal(Colors.rainbow, '[!] INSIRA O ACCOUNT AUTH PARA OBTER TODOS OS CARROS.'))
                 account_auth = prompt_valid_value("[?] ACCOUNT AUTH", "AccountAuth", password=False)
                 console.print("[%] OBTENDO TODOS OS CARROS DA CONTA: ", end=None)
                 if cpm.get_all_cars(account_auth):
@@ -676,16 +677,13 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, 'CARROS OBTIDOS COM SUCESSO.'))
                     print(Colorate.Horizontal(Colors.rainbow, '======================================'))
                     answ = Prompt.ask("[?] DESEJA SAIR ? USE Y PARA SIM E N PARA NAO ?", choices=["y", "n"], default="n")
-                    if answ == "y":
-                    print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
-                else:
-                	continue
+                    if answ == "y": print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
+                    else: continue
                 else:
                     print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
                     print(Colorate.Horizontal(Colors.rainbow, 'ACCOUNT AUTH INVÁLIDO OU ERRO NA SOLICITAÇÃO.'))
                     sleep(2)
-                    continue       
-                    
+                    continue     
                continue     
             break
         break
