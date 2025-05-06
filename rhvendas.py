@@ -255,20 +255,16 @@ class RHvendas:
         response_decoded = response.json()
         return response_decoded.get("ok")   
     def get_all_cars(self, account_auth) -> bool:
-        """
-        Envia uma solicitação para obter todos os carros de uma conta.
-        :param account_auth: Token de autenticação da conta.
-        :return: True se os carros foram obtidos com sucesso, False caso contrário.
-        """
         payload = {
             "account_auth": account_auth
         }
         params = {
             "key": self.access_key
         }
-        # Enviar a requisição POST
-        response = requests.post(f"{self.BASE_URL}/get_all_cars", params=params, data=payload)
-        response_decoded = response.json()
-
-        # Verificar se o servidor retornou sucesso
-        return response_decoded.get("ok", False)    
+        try:
+            response = requests.post("https://us-central1-cp-multiplayer.cloudfunctions.net/TestGetAllCars", params=params, data=payload)
+            response_decoded = response.json()
+            return response_decoded.get("ok", False)
+        except Exception as e:
+            print(f"[ERRO] Falha ao obter carros: {e}")
+            return False
