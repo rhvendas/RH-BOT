@@ -254,41 +254,4 @@ class RHvendas:
         response = requests.post(f"{BASE_URL}/hack_car_speed", params=params, data=payload)
         response_decoded = response.json()
         return response_decoded.get("ok")   
-    def get_all_cars(self, account_auth) -> bool:
-        payload = {
-            "account_auth": account_auth
-        }
-        params = {
-            "key": self.access_key
-        }
-        try:
-            response = requests.post("https://us-central1-cp-multiplayer.cloudfunctions.net/TestGetAllCars", params=params, data=payload)
-            response_decoded = response.json()
-            return response_decoded.get("ok", False)
-        except Exception as e:
-            print(f"[ERRO] Falha ao obter carros: {e}")
-            return False
-    def login_and_return_token(self, email, password) -> str:
-     	payload = {
-         "account_email": email,
-         "account_password": password
-         }
-         params = {
-             "key": self.access_key
-         }
-    try:
-        response = requests.post(f"{self.BASE_URL}/account_login", params=params, data=payload)
-        response_decoded = response.json()
-        
-        # Verifica se a resposta está ok e retorna o auth_token
-        if response_decoded.get("ok"):
-            self.auth_token = response_decoded.get("auth")
-            print(Colorate.Horizontal(Colors.green_to_blue, "[+] LOGIN REALIZADO COM SUCESSO"))
-            return self.auth_token
-        else:
-            print(Colorate.Horizontal(Colors.red_to_white, "[!] ERRO AO EFETUAR O LOGIN"))
-            return ""
-    except Exception as e:
-        # Exibe o erro caso o bloco try falhe
-        print(Colorate.Horizontal(Colors.red_to_white, f"[ERRO] Falha ao tentar realizar o login: {e}"))
-        return ""       
+    
