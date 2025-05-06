@@ -684,6 +684,26 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
                     print(Colorate.Horizontal(Colors.rainbow, 'ACCOUNT AUTH INVÁLIDO OU ERRO NA SOLICITAÇÃO.'))
                     sleep(2)
-                    continue     
+                    continue
+            elif service == 31:  # LOGIN E OBTER ACCOUNT AUTH
+                print(Colorate.Horizontal(Colors.rainbow, '[!] INSIRA SEU EMAIL E SENHA PARA OBTER O ACCOUNT AUTH.'))
+                email = prompt_valid_value("[?] EMAIL", "Email", password=False)
+                password = prompt_valid_value("[?] SENHA", "Password", password=True)
+                console.print("[%] EFETUANDO LOGIN: ", end=None)
+                auth_token = cpm.login_and_return_token(email, password)
+                if auth_token:
+                    print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
+                    print(Colorate.Horizontal(Colors.rainbow, 'LOGIN EFETUADO COM SUCESSO.'))
+                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
+                    print(Colorate.Horizontal(Colors.green_to_cyan, f'ACCOUNT AUTH: {auth_token}'))
+                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
+                    answ = Prompt.ask("[?] DESEJA SAIR ? USE Y PARA SIM E N PARA NAO ?", choices=["y", "n"], default="n")
+                    if answ == "y": print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
+                    else: continue
+                else:
+                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
+                    print(Colorate.Horizontal(Colors.rainbow, 'EMAIL OU SENHA INVÁLIDOS, OU ERRO NA SOLICITAÇÃO.'))
+                    sleep(2)
+                    continue      
             break
         break
