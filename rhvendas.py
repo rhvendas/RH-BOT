@@ -223,10 +223,8 @@ class RHvendas:
         return response_decoded.get("ok")
         
     def get_player_rank(self) -> dict:
-        payload = {"account_auth": self.auth_token}
-        params = {"key": self.access_key}
+        payload = { "account_auth": self.auth_token }
+        params = { "key": self.access_key }
         response = requests.post(f"{BASE_URL}/get_rank", params=params, data=payload)
-        try:
-        return response.json()
-        except Exception:
-        return {"ok": False, "message": "Erro ao decodificar resposta"}    
+        response_decoded = response.json()
+        return response_decoded
