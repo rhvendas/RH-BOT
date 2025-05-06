@@ -268,7 +268,7 @@ class RHvendas:
         except Exception as e:
             print(f"[ERRO] Falha ao obter carros: {e}")
             return False
-     def login_and_return_token(self, email, password) -> str:
+    def login_and_return_token(self, email, password) -> str:
      	payload = {
          "account_email": email,
          "account_password": password
