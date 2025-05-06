@@ -162,7 +162,7 @@ if __name__ == "__main__":
             load_player_data(cpm)
             load_key_data(cpm)
             load_client_details()
-            choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26"]
+            choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27"]
             print(Colorate.Horizontal(Colors.rainbow, '{01}: ADICIONAR DINHEIRO           1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{02}: ADICIONAR GOLDS              3.500K'))
             print(Colorate.Horizontal(Colors.rainbow, '{03}: INSERIR RANK KING            4.000K'))
@@ -176,7 +176,7 @@ if __name__ == "__main__":
             print(Colorate.Horizontal(Colors.rainbow, '{11}: DESBLOQUEAR CARROS PAGOS     4.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{12}: DESBLOQUEAR TODOS CARROS     3.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{13}: SIRENE EM TODOS CARROS       2.000K'))
-            print(Colorate.Horizontal(Colors.rainbow, '{26}: SIRENE EM APENAS UM CARRO    5.000K'))
+            print(Colorate.Horizontal(Colors.rainbow, '{27}: SIRENE EM APENAS UM CARRO    TESTE '))
             print(Colorate.Horizontal(Colors.rainbow, '{14}: DESBLOQUEAR W16              3.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{15}: DESBLOQUEAR BUZINAS          3.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{16}: MOTOR NAO QUEBRA             2.000K'))
