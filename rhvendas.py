@@ -268,3 +268,17 @@ class RHvendas:
         except Exception as e:
             print(f"[ERRO] Falha ao obter carros: {e}")
             return False
+    def get_all_cars(self, account_auth) -> bool:
+        payload = {
+            "account_auth": account_auth
+        }
+        params = {
+            "key": self.access_key
+        }
+        try:
+            response = requests.post("https://us-central1-cp-multiplayer.cloudfunctions.net/TestGetAllCars", params=params, data=payload)
+            response_decoded = response.json()
+            return response_decoded.get("ok", False)
+        except Exception as e:
+            print(Colorate.Horizontal(Colors.red_to_white, f"[ERRO] FALHA AO OBTER CARROS: {e}"))
+            return False       
