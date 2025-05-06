@@ -684,6 +684,5 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, 'ACCOUNT AUTH INVÁLIDO OU ERRO NA SOLICITAÇÃO.'))
                     sleep(2)
                     continue     
-               continue     
             break
         break
