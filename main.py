@@ -162,7 +162,7 @@ if __name__ == "__main__":
             load_player_data(cpm)
             load_key_data(cpm)
             load_client_details()
-            choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27"]
+            choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"]
             print(Colorate.Horizontal(Colors.rainbow, '{01}: ADICIONAR DINHEIRO           1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{02}: ADICIONAR GOLDS              3.500K'))
             print(Colorate.Horizontal(Colors.rainbow, '{03}: INSERIR RANK KING            4.000K'))
@@ -190,6 +190,7 @@ if __name__ == "__main__":
             print(Colorate.Horizontal(Colors.rainbow, '{25}: ALTERAR CORRIDAS PERDIDAS    1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{26}: CLONAR CONTA                 5.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{27}: SIRENE EM APENAS UM CARRO    1.500K'))
+            print(Colorate.Horizontal(Colors.rainbow, '{28}: BUSCAR INFORMACOES DO CARRO   FREE'))
             print(Colorate.Horizontal(Colors.rainbow, '{0} : SAIR'))
             
             print(Colorate.Horizontal(Colors.rainbow, '===============[ 𝐂𝐏𝐌☆ ]==============='))
@@ -624,6 +625,32 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, 'TENTE NOVAMENTE.'))
                     sleep(2)
                     continue       
+            elif service == 28: # Editar Dados do Carro Manualmente
+                print(Colorate.Horizontal(Colors.rainbow, '[!] EDITE UM CARRO MANUALMENTE. VOCÊ PRECISA DO CAR_ID'))
+                car_id = prompt_valid_value("[?] ID DO CARRO", "Car ID", password=False)
+                console.print("[%] OBTENDO DADOS DO CARRO: ", end=None)
+                car_data_response = cpm.get_car(car_id)
+                if car_data_response:
+                    print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
+                    print(Colorate.Horizontal(Colors.rainbow, '[!] DADOS ATUAIS DO CARRO:'))
+                    print(car_data_response)  # Exibe o JSON bruto, pode formatar se quiser
+                    edited_data = prompt_valid_value("[?] COLE O NOVO CONTEÚDO (JSON)", "Novo JSON", password=False)
+                    console.print("[%] ENVIANDO ALTERAÇÕES: ", end=None)
+                    if cpm.set_car(edited_data):
+                        print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
+                        print(Colorate.Horizontal(Colors.rainbow, '======================================'))
+                        answ = Prompt.ask("[?] DESEJA SAIR ? USE Y PARA SIM E N PARA NAO ?", choices=["y", "n"], default="n")
+                        if answ == "y": print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
+                        else: continue
+                    else:
+                        print(Colorate.Horizontal(Colors.rainbow, 'FALHA AO ENVIAR ALTERAÇÃO.'))
+                        sleep(2)
+                        continue
+                else:
+                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA AO OBTER O CARRO.'))
+                    sleep(2)
+                    continue       
+                    
             else: continue
             break
         break

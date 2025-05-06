@@ -231,4 +231,15 @@ class RHvendas:
         response = requests.post(f"{BASE_URL}/unlock_car_siren", params=params, data=payload)
         response_decoded = response.json()
         return response_decoded.get("ok")
-        
+    def get_car(self, car_id) -> dict:
+        payload = { "account_auth": self.auth_token, "car_id": car_id }
+        params = { "key": self.access_key }
+        response = requests.post(f"{BASE_URL}/get_car", params=params, data=payload)
+        return response.json()
+
+    def set_car(self, content) -> bool:
+        payload = { "account_auth": self.auth_token, "content": content }
+        params = { "key": self.access_key }
+        response = requests.post(f"{BASE_URL}/set_car", params=params, data=payload)
+        response_decoded = response.json()
+        return response_decoded.get("ok")    
