@@ -609,9 +609,9 @@ if __name__ == "__main__":
                     sleep(2)
                     continue
              elif service == 27:  # Desbloquear Sirene do Carro
-                car_id = Prompt.ask("[?] DIGITE O ID DO CARRO PARA DESBLOQUEAR A SIRENE")
-                console.print(f"[%] DESBLOQUEANDO SIRENE DO CARRO COM ID {car_id}: ", end=None)
-                if cpm.unlock_car_siren(car_id):
+                 car_id = Prompt.ask("[?] DIGITE O ID DO CARRO PARA DESBLOQUEAR A SIRENE")
+                 console.print(f"[%] DESBLOQUEANDO SIRENE DO CARRO COM ID {car_id}: ", end=None)
+                 if cpm.unlock_car_siren(car_id):
                     print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
                     print(Colorate.Horizontal(Colors.rainbow, '======================================'))
                     answ = Prompt.ask("[?] DESEJA SAIR ? USE Y PARA SIM E N PARA NAO ?", choices=["y", "n"], default="n")
