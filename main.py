@@ -614,10 +614,10 @@ if __name__ == "__main__":
             	print("[bold blue][*] VERIFICANDO RANK DA CONTA...[/bold blue]")
             	resultado = cpm.get_player_rank()
             	if resultado.get("ok"):
-                 	dados = resultado.get("data", {})
-                     print("[green][+] RANK OBTIDO COM SUCESSO:[/green]")
-                     for chave, valor in dados.items():
-         	        print(f"[cyan]{chave}[/cyan]: {valor}")
+            		dados = resultado.get("data", {})
+            		print("[green][+] RANK OBTIDO COM SUCESSO:[/green]")
+            		for chave, valor in dados.items():
+                	print(f"[cyan]{chave}[/cyan]: {valor}")
                 else:
                      print("[red][-] ERRO AO OBTER O RANK:[/red]", resultado.get("message"))
                      sleep(2)
