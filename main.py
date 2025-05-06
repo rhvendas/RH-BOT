@@ -609,18 +609,23 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, '[!] USE VALORES VALIDOS.'))
                     sleep(2)
                     continue
-                    
-            elif service == 27:
-            	print("[bold blue][*] VERIFICANDO RANK DA CONTA...[/bold blue]")
-            	resultado = cpm.get_player_rank()
-            	if resultado.get("ok"):
-            		dados = resultado.get("data", {})
-            		print("[green][+] RANK OBTIDO COM SUCESSO:[/green]")
-            		for chave, valor in dados.items():
-                	print(f"[cyan]{chave}[/cyan]: {valor}")
+               elif service == 27:  # Verificar Rank do Jogador
+                console.print("[%] VERIFICANDO O RANK DA SUA CONTA: ", end=None)
+                resultado = cpm.get_player_rank()
+                if resultado.get("ok"):
+                    print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
+                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
+                    for chave, valor in resultado.get("data", {}).items():
+                        print(Colorate.Horizontal(Colors.rainbow, f'{chave.upper()}: {valor}'))
+                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
+                    answ = Prompt.ask("[?] DESEJA SAIR ? USE Y PARA SIM E N PARA NAO ?", choices=["y", "n"], default="n")
+                    if answ == "y": print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
+                    else: continue
                 else:
-                     print("[red][-] ERRO AO OBTER O RANK:[/red]", resultado.get("message"))
-                     sleep(2)
+                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA AO OBTER O RANK.'))
+                    print(Colorate.Horizontal(Colors.rainbow, f'MENSAGEM: {resultado.get("message")}'))
+                    sleep(2)
+                    continue
             else: continue
             break
         break
