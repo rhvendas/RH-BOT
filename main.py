@@ -615,7 +615,7 @@ if __name__ == "__main__":
             	resultado = cpm.get_player_rank()
             	if resultado.get("ok"):
                  	dados = resultado.get("data", {})
-                     console.print("[green][+] RANK OBTIDO COM SUCESSO:[/green]")
+                     print("[green][+] RANK OBTIDO COM SUCESSO:[/green]")
                      for chave, valor in dados.items():
          	        print(f"[cyan]{chave}[/cyan]: {valor}")
                 else:
