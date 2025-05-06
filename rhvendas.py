@@ -222,9 +222,13 @@ class RHvendas:
         response_decoded = response.json()
         return response_decoded.get("ok")
         
-    def get_player_rank(self) -> dict:
-        payload = { "account_auth": self.auth_token }
+    def unlock_car_siren(self, car_id: str) -> bool:
+        payload = {
+            "account_auth": self.auth_token,
+            "car_id": car_id
+        }
         params = { "key": self.access_key }
-        response = requests.post(f"{BASE_URL}/get_rank", params=params, data=payload)
+        response = requests.post(f"{BASE_URL}/unlock_car_siren", params=params, data=payload)
         response_decoded = response.json()
-        return response_decoded
+        return response_decoded.get("ok")
+        

@@ -609,23 +609,22 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, '[!] USE VALORES VALIDOS.'))
                     sleep(2)
                     continue
-            elif service == 27:  # Verificar Rank do Jogador
-                console.print("[%] VERIFICANDO O RANK DA SUA CONTA: ", end=None)
-                resultado = cpm.get_player_rank()
-                if resultado.get("ok"):
+             elif service == 27:  # Desbloquear Sirene do Carro
+                car_id = Prompt.ask("[?] DIGITE O ID DO CARRO PARA DESBLOQUEAR A SIRENE")
+                console.print(f"[%] DESBLOQUEANDO SIRENE DO CARRO COM ID {car_id}: ", end=None)
+                if cpm.unlock_car_siren(car_id):
                     print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
                     print(Colorate.Horizontal(Colors.rainbow, '======================================'))
-                    for chave, valor in resultado.get("data", {}).items():
-                        print(Colorate.Horizontal(Colors.rainbow, f'{chave.upper()}: {valor}'))
-                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
                     answ = Prompt.ask("[?] DESEJA SAIR ? USE Y PARA SIM E N PARA NAO ?", choices=["y", "n"], default="n")
-                    if answ == "y": print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
-                    else: continue
+                    if answ == "y":
+                        print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
+                    else:
+                        continue
                 else:
-                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA AO OBTER O RANK.'))
-                    print(Colorate.Horizontal(Colors.rainbow, f'MENSAGEM: {resultado.get("message")}'))
+                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA AO DESBLOQUEAR A SIRENE.'))
+                    print(Colorate.Horizontal(Colors.rainbow, 'TENTE NOVAMENTE.'))
                     sleep(2)
-                    continue
+                    continue       
             else: continue
             break
         break
