@@ -176,7 +176,6 @@ if __name__ == "__main__":
             print(Colorate.Horizontal(Colors.rainbow, '{11}: DESBLOQUEAR CARROS PAGOS     4.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{12}: DESBLOQUEAR TODOS CARROS     3.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{13}: SIRENE EM TODOS CARROS       2.000K'))
-            print(Colorate.Horizontal(Colors.rainbow, '{27}: SIRENE EM APENAS UM CARRO    TESTE '))
             print(Colorate.Horizontal(Colors.rainbow, '{14}: DESBLOQUEAR W16              3.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{15}: DESBLOQUEAR BUZINAS          3.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{16}: MOTOR NAO QUEBRA             2.000K'))
@@ -190,6 +189,7 @@ if __name__ == "__main__":
             print(Colorate.Horizontal(Colors.rainbow, '{24}: ALTERAR CORRIDAS GANHAS      1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{25}: ALTERAR CORRIDAS PERDIDAS    1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{26}: CLONAR CONTA                 5.000K'))
+            print(Colorate.Horizontal(Colors.rainbow, '{27}: SIRENE EM APENAS UM CARRO    1.500K'))
             print(Colorate.Horizontal(Colors.rainbow, '{0} : SAIR'))
             
             print(Colorate.Horizontal(Colors.rainbow, '===============[ 𝐂𝐏𝐌☆ ]==============='))
