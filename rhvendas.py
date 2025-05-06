@@ -268,17 +268,19 @@ class RHvendas:
         except Exception as e:
             print(f"[ERRO] Falha ao obter carros: {e}")
             return False
-    def login_and_return_token(self, email, password) -> str:
-        payload = {
-        "account_email": email,
-        "account_password": password
-        }
-        params = {
-        "key": self.access_key
-        }
-        try:
-            response = requests.post(f"{self.BASE_URL}/account_login", params=params, data=payload)
-            response_decoded = response.json()
+     def login_and_return_token(self, email, password) -> str:
+     	payload = {
+         "account_email": email,
+         "account_password": password
+         }
+         params = {
+         "key": self.access_key
+         }
+    try:
+        response = requests.post(f"{self.BASE_URL}/account_login", params=params, data=payload)
+        response_decoded = response.json()
+        
+        # Verifica se a resposta está ok e retorna o auth_token
         if response_decoded.get("ok"):
             self.auth_token = response_decoded.get("auth")
             print(Colorate.Horizontal(Colors.green_to_blue, "[+] LOGIN REALIZADO COM SUCESSO"))
@@ -287,6 +289,6 @@ class RHvendas:
             print(Colorate.Horizontal(Colors.red_to_white, "[!] ERRO AO EFETUAR O LOGIN"))
             return ""
     except Exception as e:
+        # Exibe o erro caso o bloco try falhe
         print(Colorate.Horizontal(Colors.red_to_white, f"[ERRO] Falha ao tentar realizar o login: {e}"))
         return ""       
-            
