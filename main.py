@@ -608,7 +608,7 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, '[!] USE VALORES VALIDOS.'))
                     sleep(2)
                     continue
-             elif service == 27: # Desbloquear Sirene do Carro
+            elif service == 27: # Desbloquear Sirene do Carro
                 print(Colorate.Horizontal(Colors.rainbow, '[!] INFORME O ID DO CARRO QUE DESEJA DESBLOQUEAR A SIRENE.'))
                 car_id = prompt_valid_value("[?] ID DO CARRO", "Car ID", password=False)
                 console.print(f"[%] DESBLOQUEANDO SIRENE DO CARRO COM ID {car_id}: ", end=None)
