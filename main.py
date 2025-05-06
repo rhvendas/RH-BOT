@@ -609,7 +609,7 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, '[!] USE VALORES VALIDOS.'))
                     sleep(2)
                     continue
-               elif service == 27:  # Verificar Rank do Jogador
+            elif service == 27:  # Verificar Rank do Jogador
                 console.print("[%] VERIFICANDO O RANK DA SUA CONTA: ", end=None)
                 resultado = cpm.get_player_rank()
                 if resultado.get("ok"):
