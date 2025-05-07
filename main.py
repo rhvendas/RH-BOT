@@ -674,7 +674,7 @@ if __name__ == "__main__":
                 try:
                     car_id = int(car_id)
                     console.print("[%] DESBLOQUEANDO CARRO ID {}: ".format(car_id), end=None)
-                    if cpm.unlock_car_by_id(car_id):
+                if cpm.unlock_car_by_id(car_id):
                     print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
                     else:
                     print(Colorate.Horizontal(Colors.rainbow, 'FALHA. CARRO NÃO ENCONTRADO OU ERRO.'))
