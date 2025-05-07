@@ -255,19 +255,21 @@ class RHvendas:
         response_decoded = response.json()
         return response_decoded.get("ok")   
     def change_email(self, new_email):
+        """
+        Altera o e-mail associado à conta.
 
-        Args:
-            new_email (str): Novo e-mail a ser definido
+    Args:
+        new_email (str): Novo e-mail a ser definido.
 
     Returns:
-        bool: True se o e-mail foi alterado com sucesso, False caso contrário
-        
+        bool: True se a alteração foi bem-sucedida, False caso contrário.
+        """
         payload = {
         "account_auth": self.auth_token,
         "new_email": new_email
-        }
-        params = {"key": self.access_key}
-
+    }
+    params = {"key": self.access_key}
+    
     try:
         response = requests.post(
             f"{__ENDPOINT_URL__}/change_email",
@@ -276,16 +278,14 @@ class RHvendas:
             timeout=10
         )
         response_decoded = response.json()
-
+        
         if response_decoded.get("new_token"):
             self.auth_token = response_decoded["new_token"]
-
+            
         return response_decoded.get("ok", False)
-
+        
     except requests.exceptions.RequestException:
         return False
-        
-        
     def change_password(self, new_password):
         payload = {
         "account_auth": self.auth_token,
