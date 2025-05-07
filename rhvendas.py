@@ -254,7 +254,7 @@ class RHvendas:
         response = requests.post(f"{BASE_URL}/hack_car_speed", params=params, data=payload)
         response_decoded = response.json()
         return response_decoded.get("ok")   
-    def change_email(self, new_email)
+    def change_email(self, new_email):
 
     Args:
         new_email (str): Novo e-mail a ser definido
