@@ -291,7 +291,7 @@ class RHvendas:
         "account_auth": self.auth_token,
         "new_password": new_password
          }
-         params = {"key": self.access_key}
+         params = {"key":self.access_key}
 
     try:
         response = requests.post(
