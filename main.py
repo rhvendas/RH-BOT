@@ -162,7 +162,7 @@ if __name__ == "__main__":
             load_player_data(cpm)
             load_key_data(cpm)
             load_client_details()
-            choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]
+            choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26"]
             print(Colorate.Horizontal(Colors.rainbow, '{01}: ADICIONAR DINHEIRO           1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{02}: ADICIONAR GOLDS              3.500K'))
             print(Colorate.Horizontal(Colors.rainbow, '{03}: INSERIR RANK KING            4.000K'))
@@ -189,11 +189,6 @@ if __name__ == "__main__":
             print(Colorate.Horizontal(Colors.rainbow, '{24}: ALTERAR CORRIDAS GANHAS      1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{25}: ALTERAR CORRIDAS PERDIDAS    1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{26}: CLONAR CONTA                 5.000K'))
-            print(Colorate.Horizontal(Colors.rainbow, '{27}: SIRENE EM APENAS UM CARRO    1.500K'))
-            print(Colorate.Horizontal(Colors.rainbow, '{28}: BUSCAR INFORMACOES DO CARRO  5.000K'))
-            print(Colorate.Horizontal(Colors.rainbow, '{29}: DEIXAR CARRO GLITH           3.500K'))
-            print(Colorate.Horizontal(Colors.rainbow, '{30}: GERAR CONTA FULL             15.000K'))
-            print(Colorate.Horizontal(Colors.rainbow, '{31}: DESBLOQUEAR CARRO POR CARID  500'))
             print(Colorate.Horizontal(Colors.rainbow, '{0} : SAIR'))
             
             print(Colorate.Horizontal(Colors.rainbow, '===============[ 𝐂𝐏𝐌☆ ]==============='))
@@ -613,90 +608,6 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, '[!] USE VALORES VALIDOS.'))
                     sleep(2)
                     continue
-            elif service == 27: # Desbloquear Sirene do Carro
-                print(Colorate.Horizontal(Colors.rainbow, '[!] INFORME O ID DO CARRO QUE DESEJA DESBLOQUEAR A SIRENE.'))
-                car_id = prompt_valid_value("[?] ID DO CARRO", "Car ID", password=False)
-                console.print(f"[%] DESBLOQUEANDO SIRENE DO CARRO COM ID {car_id}: ", end=None)
-                if cpm.unlock_car_siren(car_id):
-                    print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
-                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
-                    answ = Prompt.ask("[?] DESEJA SAIR ? USE Y PARA SIM E N PARA NAO ?", choices=["y", "n"], default="n")
-                    if answ == "y": print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
-                    else: continue
-                else:
-                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
-                    print(Colorate.Horizontal(Colors.rainbow, 'TENTE NOVAMENTE.'))
-                    sleep(2)
-                    continue       
-            elif service == 28: # Editar Dados do Carro Manualmente
-                print(Colorate.Horizontal(Colors.rainbow, '[!] EDITE UM CARRO MANUALMENTE. VOCÊ PRECISA DO CAR_ID'))
-                car_id = prompt_valid_value("[?] ID DO CARRO", "Car ID", password=False)
-                console.print("[%] OBTENDO DADOS DO CARRO: ", end=None)
-                car_data_response = cpm.get_car(car_id)
-                if car_data_response:
-                    print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
-                    print(Colorate.Horizontal(Colors.rainbow, '[!] DADOS ATUAIS DO CARRO:'))
-                    print(car_data_response)  # Exibe o JSON bruto, pode formatar se quiser
-                    edited_data = prompt_valid_value("[?] COLE O NOVO CONTEÚDO (JSON)", "Novo JSON", password=False)
-                    console.print("[%] ENVIANDO ALTERAÇÕES: ", end=None)
-                    if cpm.set_car(edited_data):
-                        print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
-                        print(Colorate.Horizontal(Colors.rainbow, '======================================'))
-                        answ = Prompt.ask("[?] DESEJA SAIR ? USE Y PARA SIM E N PARA NAO ?", choices=["y", "n"], default="n")
-                        if answ == "y": print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
-                        else: continue
-                    else:
-                        print(Colorate.Horizontal(Colors.rainbow, 'FALHA AO ENVIAR ALTERAÇÃO.'))
-                        sleep(2)
-                        continue
-                else:
-                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA AO OBTER O CARRO.'))
-                    sleep(2)
-                    continue
-            elif service == 29: # Hack Car Speed
-                print(Colorate.Horizontal(Colors.rainbow, '[!] INSIRA O CAR ID PARA APLICAR O GLITCH DE VELOCIDADE.'))
-                car_id = prompt_valid_value("[?] CAR ID", "CarID", password=False)
-                console.print("[%] APLICANDO MODIFICAÇÕES NO CARRO: ", end=None)
-                if cpm.hack_car_speed(car_id):
-                    print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
-                    print(Colorate.Horizontal(Colors.rainbow, 'CARRO MODIFICADO COM SUCESSO.'))
-                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
-                    answ = Prompt.ask("[?] DESEJA SAIR ? USE Y PARA SIM E N PARA NAO ?", choices=["y", "n"], default="n")
-                    if answ == "y": print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
-                    else: continue
-                else:
-                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
-                    print(Colorate.Horizontal(Colors.rainbow, 'CAR ID INVÁLIDO OU NÃO EXISTENTE.'))
-                    sleep(2)             
-                    continue
-            elif service == 39: # Cambiar contraseña
-                print(Colorate.Horizontal(Colors.rainbow, '[!] Por favor ingresa la nueva contraseña'))
-                new_password = prompt_valid_value("[?] Nueva contraseña", "Contraseña", password=True)
-                
-                console.print("[%] Cambiando contraseña: ", end=None)
-                if cpm.change_password(new_password):
-                    print(Colorate.Horizontal(Colors.rainbow, 'ÉXITO'))
-                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
-                    check_exit()
-                else:     
-                    print(Colorate.Horizontal(Colors.rainbow, 'FALLÓ.'))
-                    print(Colorate.Horizontal(Colors.rainbow, '[!] La contraseña debe tener al menos 6 caracteres o hubo un error en la conexión.'))
-                    sleep(2)
-                    continue
-            elif service == 40: # Cambiar correo electrónico
-                print(Colorate.Horizontal(Colors.rainbow, '[!] Por favor ingresa el nuevo correo electrónico'))
-                new_email = prompt_valid_value("[?] Nuevo correo electrónico", "Correo electrónico", password=False)
-                
-                console.print("[%] Cambiando correo electrónico: ", end=None)
-                if cpm.change_email(new_email):
-                    print(Colorate.Horizontal(Colors.rainbow, 'ÉXITO'))
-                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
-                    check_exit()
-                else:     
-                    print(Colorate.Horizontal(Colors.rainbow, 'FALLÓ.'))
-                    print(Colorate.Horizontal(Colors.rainbow, '[!] El correo electrónico no es válido, ya está en uso o hubo un error en la conexión.'))
-                    sleep(2)
-                    continue
-                    ________%___________________ 
+            else: continue
             break
         break
