@@ -256,8 +256,8 @@ class RHvendas:
         return response_decoded.get("ok")   
     def change_email(self, new_email):
 
-    Args:
-        new_email (str): Novo e-mail a ser definido
+        Args:
+            new_email (str): Novo e-mail a ser definido
 
     Returns:
         bool: True se o e-mail foi alterado com sucesso, False caso contrário
