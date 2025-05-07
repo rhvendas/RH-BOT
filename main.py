@@ -670,19 +670,27 @@ if __name__ == "__main__":
                     sleep(2)             
                     continue
             elif service == 31:  # Desbloquear carro por ID
-                car_id = Prompt.ask("[?] DIGITE O CAR ID PARA DESBLOQUEAR")
-                try:
+                print(Colorate.Horizontal(Colors.rainbow, '[!] INSIRA O CAR ID PARA DESBLOQUEAR.'))
+                car_id = Prompt.ask("[?] CAR ID")
+                if car_id.isdigit():
                     car_id = int(car_id)
                     console.print("[%] DESBLOQUEANDO CARRO ID {}: ".format(car_id), end=None)
-                if cpm.unlock_car_by_id(car_id):
+                    if cpm.unlock_car_by_id(car_id):
                     print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
-                    else:
-                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA. CARRO NÃO ENCONTRADO OU ERRO.'))
-                except ValueError:
-                    print(Colorate.Horizontal(Colors.red_to_white, "ID INVÁLIDO. DIGITE UM NÚMERO."))
-                    sleep(2)
-                    continue
-            
-             
+                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
+                    answ = Prompt.ask("[?] DESEJA SAIR ? USE Y PARA SIM E N PARA NAO ?", choices=["y", "n"], default="n")
+                    if answ == "y":
+                    print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
+                else:
+                	continue
+                else:
+                     print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
+                     print(Colorate.Horizontal(Colors.rainbow, 'CARRO NÃO ENCONTRADO OU ERRO.'))
+                     sleep(2)
+                     continue
+                     else:
+                          print(Colorate.Horizontal(Colors.red_to_white, "ID INVÁLIDO. DIGITE UM NÚMERO."))
+                          sleep(2)
+                          continue
             break
         break
