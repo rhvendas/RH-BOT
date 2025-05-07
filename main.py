@@ -669,7 +669,7 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, 'CAR ID INVÁLIDO OU NÃO EXISTENTE.'))
                     sleep(2)             
                     continue
-             elif service == 13:  # Desbloquear carro por ID
+            elif service == 13:  # Desbloquear carro por ID
                car_id = Prompt.ask("[?] DIGITE O CAR ID PARA DESBLOQUEAR")
                 try:
                   car_id = int(car_id)
