@@ -681,15 +681,15 @@ if __name__ == "__main__":
                     answ = Prompt.ask("[?] DESEJA SAIR ? USE Y PARA SIM E N PARA NAO ?", choices=["y", "n"], default="n")
                 if answ == "y":
                     print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
-                	continue
+                    continue
                 else:
-                     print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
-                     print(Colorate.Horizontal(Colors.rainbow, 'CARRO NÃO ENCONTRADO OU ERRO.'))
-                     sleep(2)
-                     continue
-                     else:
-                          print(Colorate.Horizontal(Colors.red_to_white, "ID INVÁLIDO. DIGITE UM NÚMERO."))
-                          sleep(2)
-                          continue
+                	print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
+                	print(Colorate.Horizontal(Colors.rainbow, 'CARRO NÃO ENCONTRADO OU ERRO.'))
+                	sleep(2)
+                	continue
+                	else:
+                		print(Colorate.Horizontal(Colors.red_to_white, "ID INVÁLIDO. DIGITE UM NÚMERO."))
+                		sleep(2)
+                		continue
             break
         break
