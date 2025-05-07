@@ -686,9 +686,10 @@ if __name__ == "__main__":
                 	print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
                 	print(Colorate.Horizontal(Colors.rainbow, 'CARRO NÃO ENCONTRADO OU ERRO.'))
                 	sleep(2)
-                	else: continue
-                		print(Colorate.Horizontal(Colors.red_to_white, "ID INVÁLIDO. DIGITE UM NÚMERO."))
-                		sleep(2)
-                		continue
+                	continue
+                else:
+                	print(Colorate.Horizontal(Colors.red_to_white, "ID INVÁLIDO. DIGITE UM NÚMERO."))
+                	sleep(2)
+                	continue
             break
         break
