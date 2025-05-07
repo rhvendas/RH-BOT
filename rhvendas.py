@@ -280,7 +280,6 @@ class RHvendas:
             
             
             def change_email(self, new_email):
-        """
         Cambia el correo electrónico asociado a la cuenta
         
         Args:
