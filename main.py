@@ -162,7 +162,7 @@ if __name__ == "__main__":
             load_player_data(cpm)
             load_key_data(cpm)
             load_client_details()
-            choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30","31"]
+            choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]
             print(Colorate.Horizontal(Colors.rainbow, '{01}: ADICIONAR DINHEIRO           1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{02}: ADICIONAR GOLDS              3.500K'))
             print(Colorate.Horizontal(Colors.rainbow, '{03}: INSERIR RANK KING            4.000K'))
@@ -669,7 +669,34 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, 'CAR ID INVÁLIDO OU NÃO EXISTENTE.'))
                     sleep(2)             
                     continue
-                    
-            
+             elif service == 39: # Cambiar contraseña
+                print(Colorate.Horizontal(Colors.rainbow, '[!] Por favor ingresa la nueva contraseña'))
+                new_password = prompt_valid_value("[?] Nueva contraseña", "Contraseña", password=True)
+                
+                console.print("[%] Cambiando contraseña: ", end=None)
+                if cpm.change_password(new_password):
+                    print(Colorate.Horizontal(Colors.rainbow, 'ÉXITO'))
+                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
+                    check_exit()
+                else:     
+                    print(Colorate.Horizontal(Colors.rainbow, 'FALLÓ.'))
+                    print(Colorate.Horizontal(Colors.rainbow, '[!] La contraseña debe tener al menos 6 caracteres o hubo un error en la conexión.'))
+                    sleep(2)
+                    continue
+            elif service == 40: # Cambiar correo electrónico
+                print(Colorate.Horizontal(Colors.rainbow, '[!] Por favor ingresa el nuevo correo electrónico'))
+                new_email = prompt_valid_value("[?] Nuevo correo electrónico", "Correo electrónico", password=False)
+                
+                console.print("[%] Cambiando correo electrónico: ", end=None)
+                if cpm.change_email(new_email):
+                    print(Colorate.Horizontal(Colors.rainbow, 'ÉXITO'))
+                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
+                    check_exit()
+                else:     
+                    print(Colorate.Horizontal(Colors.rainbow, 'FALLÓ.'))
+                    print(Colorate.Horizontal(Colors.rainbow, '[!] El correo electrónico no es válido, ya está en uso o hubo un error en la conexión.'))
+                    sleep(2)
+                    continue
+                    ________%___________________ 
             break
         break
