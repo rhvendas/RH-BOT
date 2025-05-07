@@ -681,7 +681,6 @@ if __name__ == "__main__":
                     answ = Prompt.ask("[?] DESEJA SAIR ? USE Y PARA SIM E N PARA NAO ?", choices=["y", "n"], default="n")
                 if answ == "y":
                     print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
-                else:
                 	continue
                 else:
                      print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
