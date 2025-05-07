@@ -671,7 +671,7 @@ if __name__ == "__main__":
                     continue
             elif service == 13:  # Desbloquear carro por ID
                car_id = Prompt.ask("[?] DIGITE O CAR ID PARA DESBLOQUEAR")
-                  try:
+              try:
                   car_id = int(car_id)
                   console.print("[%] DESBLOQUEANDO CARRO ID {}: ".format(car_id), end=None)
                   if cpm.unlock_car_by_id(car_id):
