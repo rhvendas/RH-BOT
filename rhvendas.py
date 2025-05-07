@@ -287,7 +287,6 @@ class RHvendas:
         
         Returns:
             bool: True si el cambio fue exitoso, False en caso contrario
-        """
         payload = {
             "account_auth": self.auth_token,
             "new_email": new_email
