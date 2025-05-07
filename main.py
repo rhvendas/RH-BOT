@@ -669,19 +669,19 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, 'CAR ID INVÁLIDO OU NÃO EXISTENTE.'))
                     sleep(2)             
                     continue
-            elif service == 13:  # Desbloquear carro por ID
-               car_id = Prompt.ask("[?] DIGITE O CAR ID PARA DESBLOQUEAR")
-              try:
-                  car_id = int(car_id)
-                  console.print("[%] DESBLOQUEANDO CARRO ID {}: ".format(car_id), end=None)
-                  if cpm.unlock_car_by_id(car_id):
-                  print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
-               else:
-                  print(Colorate.Horizontal(Colors.rainbow, 'FALHA. CARRO NÃO ENCONTRADO OU ERRO.'))
-                  except ValueError:
-                  print(Colorate.Horizontal(Colors.red_to_white, "ID INVÁLIDO. DIGITE UM NÚMERO."))
-                  sleep(2)
-                  continue       
+            elif service == 31:  # Desbloquear carro por ID
+                car_id = Prompt.ask("[?] DIGITE O CAR ID PARA DESBLOQUEAR")
+                try:
+                    car_id = int(car_id)
+                    console.print("[%] DESBLOQUEANDO CARRO ID {}: ".format(car_id), end=None)
+                    if cpm.unlock_car_by_id(car_id):
+                    print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
+                    else:
+                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA. CARRO NÃO ENCONTRADO OU ERRO.'))
+                except ValueError:
+                    print(Colorate.Horizontal(Colors.red_to_white, "ID INVÁLIDO. DIGITE UM NÚMERO."))
+                    sleep(2)
+                    continue
             
              
             break
