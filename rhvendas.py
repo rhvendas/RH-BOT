@@ -255,7 +255,6 @@ class RHvendas:
         response_decoded = response.json()
         return response_decoded.get("ok")   
     def change_email(self, new_email):
-    """
     Altera o e-mail da conta
 
     Args:
@@ -263,12 +262,12 @@ class RHvendas:
 
     Returns:
         bool: True se o e-mail foi alterado com sucesso, False caso contrário
-    """
-    payload = {
+        
+        payload = {
         "account_auth": self.auth_token,
         "new_email": new_email
-    }
-    params = {"key": self.access_key}
+        }
+        params = {"key": self.access_key}
 
     try:
         response = requests.post(
