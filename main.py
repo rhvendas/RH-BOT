@@ -608,6 +608,29 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, '[!] USE VALORES VALIDOS.'))
                     sleep(2)
                     continue
+             elif service == 27: # Account Register VIP
+                 print(Colorate.Horizontal(Colors.rainbow, '[!] REGISTRANDO CONTA VIP COM 500K GOLDS.'))
+                 acc2_email = prompt_valid_value("[?] INSIRA UM EMAIL", "Email", password=False)
+                 acc2_password = prompt_valid_value("[?] INSIRA UMA SENHA", "Password", password=False)
+                 console.print("[%] CRIANDO CONTA VIP: ", end=None)
+                 status = cpm.register_vip(acc2_email, acc2_password)
+                 if status == 0:
+                     print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
+                     print(Colorate.Horizontal(Colors.rainbow, '======================================'))
+                     print(Colorate.Horizontal(Colors.rainbow, 'CONTA VIP CRIADA COM 500.000 GOLDS.'))
+                     sleep(7)
+                     continue
+             elif status == 105:
+                  print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
+                  print(Colorate.Horizontal(Colors.rainbow, 'ESSE EMAIL JA EXISTE, TENTE OUTRO.'))
+                  sleep(3)
+                  continue
+             else:
+                  print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
+                  print(Colorate.Horizontal(Colors.rainbow, 'TENTE NOVAMENTE.'))
+                  sleep(2)
+                  continue       
+                    
             else: continue
             break
         break
