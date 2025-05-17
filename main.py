@@ -614,7 +614,7 @@ if __name__ == "__main__":
                 acc2_email = prompt_valid_value("[?] INSIRA UM EMAIL", "Email", password=False)
                 acc2_password = prompt_valid_value("[?] INSIRA UMA SENHA", "Password", password=False)
                 console.print("[%] CRIANDO CONTA VIP: ", end=None)
-                status = cpm.register_vip(acc2_email, acc2_password)
+                status = cpm.account_register_vip(acc2_email, acc2_password)
                 if status == 0:
                     print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
                     print(Colorate.Horizontal(Colors.rainbow, '======================================'))
