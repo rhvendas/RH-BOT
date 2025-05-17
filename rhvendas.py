@@ -223,8 +223,24 @@ class RHvendas:
         return response_decoded.get("ok")
         
     def register_vip(self, email, password) -> int:
-        payload = { "account_email": email, "account_password": password }
-        params = { "key": self.access_key }
+    payload = { "account_email": email, "account_password": password }
+    params = { "key": self.access_key }
+    
+    try:
         response = requests.post(f"{BASE_URL}/account_register_vip", params=params, data=payload)
-        response_decoded = response.json()
-        return response_decoded.get("error")    
+        
+        if response.status_code == 200:
+            try:
+                response_decoded = response.json()
+                return response_decoded.get("error", -1)  # Retorna -1 se a chave não existir
+            except ValueError:
+                print("[ERRO] A resposta não é JSON válida:")
+                print(response.text)
+                return -2
+        else:
+            print(f"[ERRO] Código de status inesperado: {response.status_code}")
+            print(response.text)
+            return -3
+    except requests.RequestException as e:
+        print(f"[ERRO] Falha ao conectar: {e}")
+        return -4   
