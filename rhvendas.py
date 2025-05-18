@@ -221,8 +221,3 @@ class RHvendas:
         response = requests.post(f"{BASE_URL}/clone", params=params, data=payload)
         response_decoded = response.json()
         return response_decoded.get("ok")
-        
-    
-        
-    
-    
