@@ -222,12 +222,7 @@ class RHvendas:
         response_decoded = response.json()
         return response_decoded.get("ok")
         
-    def register(self, email, password) -> int:
-        payload = { "account_email": email, "account_password": password }
-        params = { "key": self.access_key }
-        response = requests.post(f"{BASE_URL}/account_register", params=params, data=payload)
-        response_decoded = response.json()
-        return response_decoded.get("error")
+    
         
     
     

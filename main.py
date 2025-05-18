@@ -609,29 +609,7 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, '[!] USE VALORES VALIDOS.'))
                     sleep(2)
                     continue
-            elif service == 27: # Account Register
-                print(Colorate.Horizontal(Colors.rainbow, '[!] VAMOS REGISTRAR SUA NOVA CONTA.'))
-                acc2_email = prompt_valid_value("[?] INSIRA UM EMAIL", "Email", password=False)
-                acc2_password = prompt_valid_value("[?] INSIRA UMA SENHA", "Password", password=False)
-                console.print("[%] CRIANDO SUA NOVA CONTA: ", end=None)
-                status = cpm.register(acc2_email, acc2_password)
-                if status == 0:
-                    print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
-                    print(Colorate.Horizontal(Colors.rainbow, '======================================'))
-                    print(Colorate.Horizontal(Colors.rainbow, f'INFO: AGORA VOCE JA PODE MODIFICAR ESTA CONTA.'))
-                    print(Colorate.Horizontal(Colors.rainbow, 'ENTRE PELO MENOS UMA VEZ NO JOGO USANDO ESSA CONTA ANTES DE ADICIONAR QUALQUER SERVICO.'))
-                    sleep(7)
-                    continue
-                elif status == 105:
-                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
-                    print(Colorate.Horizontal(Colors.rainbow, 'ESSE EMAIL JA EXISTE, TENTE UM NOVO EMAIL QUE NAO ESTAJA SENDO USADO !.'))
-                    sleep(3)
-                    continue
-                else:
-                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
-                    print(Colorate.Horizontal(Colors.rainbow, 'TENTE NOVAMENTE.'))
-                    sleep(2)
-                    continue
+            
             else: continue
             break
         break
