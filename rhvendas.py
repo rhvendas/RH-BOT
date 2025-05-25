@@ -236,21 +236,29 @@ class RHvendas:
             "account_auth": self.auth,
             "car_id": car_id
         }
+    
         try:
             response = self.session.post(
                 self.base_url + endpoint,
-                params={"key": self.access_key},
+                params={"key": self.access_key},  # chave de acesso no query string
                 json=payload,
-                timeout=10
+                timeout=15
             )
+    
             if response.status_code == 200:
                 data = response.json()
-                if data.get("ok"):
-                    return True
-                else:
-                    return False
+                # Retorna o dicionário JSON da resposta para manipulação posterior
+                return data
             else:
-                return False
+                return {
+                    "ok": False,
+                    "error": response.status_code,
+                    "message": "HTTP_ERROR"
+                }
         except Exception as e:
-            print(f"Erro na função account_hack_car_speed: {e}")
-            return False
+            print(f"Erro na account_hack_car_speed: {e}")
+            return {
+                "ok": False,
+                "error": -1,
+                "message": "EXCEPTION"
+            }
