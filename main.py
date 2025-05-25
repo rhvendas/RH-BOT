@@ -633,8 +633,8 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, '[!] INSIRA UM CAR ID VÁLIDO.'))
                     sleep(2)
                     continue
-                else: continue
+            else: continue
+                break
             break
-        break
-        
+                
                     
