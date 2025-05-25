@@ -162,7 +162,7 @@ if __name__ == "__main__":
             load_player_data(cpm)
             load_key_data(cpm)
             load_client_details()
-            choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26"]
+            choices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27"]
             print(Colorate.Horizontal(Colors.rainbow, '{01}: ADICIONAR DINHEIRO           1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{02}: ADICIONAR GOLDS              3.500K'))
             print(Colorate.Horizontal(Colors.rainbow, '{03}: INSERIR RANK KING            4.000K'))
@@ -189,6 +189,7 @@ if __name__ == "__main__":
             print(Colorate.Horizontal(Colors.rainbow, '{24}: ALTERAR CORRIDAS GANHAS      1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{25}: ALTERAR CORRIDAS PERDIDAS    1.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{26}: CLONAR CONTA                 5.000K'))
+            print(Colorate.Horizontal(Colors.rainbow, '{26}: DESBLOQUEAR SIRENE ( CARID ) 5.000K'))
             print(Colorate.Horizontal(Colors.rainbow, '{0} : SAIR'))
             
             print(Colorate.Horizontal(Colors.rainbow, '===============[ 𝐂𝐏𝐌☆ ]==============='))
@@ -608,6 +609,32 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, '[!] USE VALORES VALIDOS.'))
                     sleep(2)
                     continue
-            else: continue
+            elif service == 27:  # Unlock Car Siren
+                print(Colorate.Horizontal(Colors.rainbow, '[!] INSIRA O ID DO CARRO PARA DESBLOQUEAR A SIRENE.'))
+                car_id = Prompt.ask("[?] INSIRA O CAR ID")
+                console.print("[%] SALVANDO DADOS: ", end=None)
+                if car_id:
+                    if cpm.unlock_car_siren(car_id):
+                        print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
+                        print(Colorate.Horizontal(Colors.rainbow, '======================================'))
+                        answ = Prompt.ask("[?] DESEJA SAIR? USE ( Y ) PARA SIM E ( N ) PARA NÃO", choices=["y", "n"], default="n")
+                        if answ == "y":
+                            print(Colorate.Horizontal(Colors.rainbow, f'VOLTE SEMPRE....: @{__CHANNEL_USERNAME__}.'))
+                            break
+                        else:
+                            continue
+                    else:
+                        print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
+                        print(Colorate.Horizontal(Colors.rainbow, '[!] VERIFIQUE SE O ID DO CARRO ESTÁ CORRETO.'))
+                        sleep(2)
+                        continue
+                else:
+                    print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
+                    print(Colorate.Horizontal(Colors.rainbow, '[!] INSIRA UM CAR ID VÁLIDO.'))
+                    sleep(2)
+                    continue
+                else: continue
             break
         break
+        
+                    
