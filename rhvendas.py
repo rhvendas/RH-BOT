@@ -230,7 +230,7 @@ class RHvendas:
         response = requests.post(f"{BASE_URL}/unlock_car_siren", params=params, data=payload)
         response_decoded = response.json()
         return response_decoded.get("ok")
-    def hack_car_speed(self, car_id):
+    def account_hack_car_speed(self, car_id):
         endpoint = "/hack_car_speed"
         payload = {
             "account_auth": self.auth,
@@ -252,7 +252,5 @@ class RHvendas:
             else:
                 return False
         except Exception as e:
-            print(f"Erro na função hack_car_speed: {e}")
-            return False    
-        
-    
+            print(f"Erro na função account_hack_car_speed: {e}")
+            return False
