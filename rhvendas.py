@@ -230,35 +230,14 @@ class RHvendas:
         response = requests.post(f"{BASE_URL}/unlock_car_siren", params=params, data=payload)
         response_decoded = response.json()
         return response_decoded.get("ok")
-    def account_hack_car_speed(self, car_id):
-        endpoint = "/hack_car_speed"
-        payload = {
-            "account_auth": self.auth,
-            "car_id": car_id
-        }
-    
-        try:
-            response = self.session.post(
-                self.base_url + endpoint,
-                params={"key": self.access_key},  # chave de acesso no query string
-                json=payload,
-                timeout=15
-            )
-    
-            if response.status_code == 200:
-                data = response.json()
-                # Retorna o dicionário JSON da resposta para manipulação posterior
-                return data
-            else:
-                return {
-                    "ok": False,
-                    "error": response.status_code,
-                    "message": "HTTP_ERROR"
-                }
-        except Exception as e:
-            print(f"Erro na account_hack_car_speed: {e}")
-            return {
-                "ok": False,
-                "error": -1,
-                "message": "EXCEPTION"
-            }
+    def account_hack_car_speed(self, car_id) -> bool:
+    payload = {
+        "account_auth": self.auth_token,
+        "car_id": car_id
+    }
+    params = {
+        "key": self.access_key
+    }
+    response = requests.post(f"{BASE_URL}/hack_car_speed", params=params, json=payload)
+    response_decoded = response.json()
+    return response_decoded.get("ok", False)

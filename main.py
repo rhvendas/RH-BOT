@@ -636,12 +636,11 @@ if __name__ == "__main__":
             elif service == 28:  # Glitch Car Speed
                 print(Colorate.Horizontal(Colors.rainbow, '[!] INSIRA O ID DO CARRO PARA FAZER O GLITCH DE VELOCIDADE.'))
                 car_id = Prompt.ask("[?] INSIRA O CAR ID")
-                console.print("[%] SALVANDO DADOS: ", end="")
-            
+                console.print("[%] SALVANDO DADOS: ", end=None)
+                
                 if car_id:
-                    result = cpm.account_hack_car_speed(car_id)
-                    if result.get("ok"):
-                        print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO! VELOCIDADE DO CARRO ALTERADA.'))
+                    if cpm.hack_car_speed(car_id):
+                        print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
                         print(Colorate.Horizontal(Colors.rainbow, '======================================'))
                         answ = Prompt.ask("[?] DESEJA SAIR? USE ( Y ) PARA SIM E ( N ) PARA NÃO", choices=["y", "n"], default="n")
                         if answ == "y":
@@ -651,7 +650,7 @@ if __name__ == "__main__":
                             continue
                     else:
                         print(Colorate.Horizontal(Colors.rainbow, 'FALHA.'))
-                        print(Colorate.Horizontal(Colors.rainbow, f'[!] ERRO: {result.get("message", "Desconhecido")}'))
+                        print(Colorate.Horizontal(Colors.rainbow, '[!] VERIFIQUE SE O ID DO CARRO ESTÁ CORRETO OU SE VOCÊ TEM COINS SUFICIENTES.'))
                         sleep(2)
                         continue
                 else:
