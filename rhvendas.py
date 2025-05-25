@@ -230,14 +230,12 @@ class RHvendas:
         response = requests.post(f"{BASE_URL}/unlock_car_siren", params=params, data=payload)
         response_decoded = response.json()
         return response_decoded.get("ok")
-    def account_hack_car_speed(self, car_id) -> bool:
+    def hack_car_speed(self, car_id) -> bool:
         payload = {
             "account_auth": self.auth_token,
             "car_id": car_id
         }
-        params = {
-            "key": self.access_key
-        }
-        response = requests.post(f"{BASE_URL}/account_hack_car_speed", params=params, json=payload)
+        params = {"key": self.access_key}
+        response = requests.post(f"{BASE_URL}/hack_car_speed", params=params, data=payload)
         response_decoded = response.json()
         return response_decoded.get("ok", False)
