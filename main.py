@@ -639,7 +639,7 @@ if __name__ == "__main__":
                 console.print("[%] SALVANDO DADOS: ", end=None)
                 
                 if car_id:
-                    if cpm.hack_car_speed(car_id):
+                    if account_hack_car_speed(car_id):
                         print(Colorate.Horizontal(Colors.rainbow, 'SUCESSO'))
                         print(Colorate.Horizontal(Colors.rainbow, '======================================'))
                         answ = Prompt.ask("[?] DESEJA SAIR? USE ( Y ) PARA SIM E ( N ) PARA NÃO", choices=["y", "n"], default="n")
