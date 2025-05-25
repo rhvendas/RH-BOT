@@ -633,7 +633,7 @@ if __name__ == "__main__":
                     print(Colorate.Horizontal(Colors.rainbow, '[!] INSIRA UM CAR ID VÁLIDO.'))
                     sleep(2)
                     continue
-            elif service == XX:  # Glitch Car Speed
+            elif service == 28:  # Glitch Car Speed
                 print(Colorate.Horizontal(Colors.rainbow, '[!] INSIRA O ID DO CARRO PARA FAZER O GLITCH DE VELOCIDADE.'))
                 car_id = Prompt.ask("[?] INSIRA O CAR ID")
                 console.print("[%] SALVANDO DADOS: ", end=None)
